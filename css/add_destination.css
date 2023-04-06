@@ -6,7 +6,7 @@
     height: 44px;
     border-color: #dbdbdb;
 }
-@media min-width(601px)
+@media (min-width: 601px)
 {
 .custom-bg-danger
     {
