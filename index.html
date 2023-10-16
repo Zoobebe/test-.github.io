@@ -2,54 +2,464 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/accordion.css">
-    <link rel="stylesheet" type="text/css" href="css/commontheme.css">
-    <title>Document</title>
-    <style>
-        @supports (-webkit-touch-callout: none) {
-  /* Safari-only CSS */
-  html {
-    touch-action: manipulation;
-    -webkit-text-size-adjust: none;
-    user-scalable: no;
-  }
-}
-        .card-bg
-        {
-            width: 608px;
-             height: 887px;
-            border-radius: 10px;
-             background: #FFF;
-              box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-              width:300px;
-/*                min-width:320px; */
-            margin-left:20px;
-            margin-right:20px;
-        }
-    </style>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users and Roles</title>
 </head>
 
 <body>
+  <!DOCTYPE html>
+  <html>
 
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial;
+      }
 
-    <div class="container">
-    <div class="row justify-content-center">
-            <div class="w100 card-bg">
-                
-                <div class="d-flex justify-content-center w-100">
-            <div class="w-25 mb-3 ">
-              <label for="password" class="form-label font-14 font-regular">Password1</label>
-              <input type="password" class="form-control" id="password">
-            </div>
-          
-            
-          </div>
+      /* Style the tab */
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+
+      /* Style the buttons inside the tab */
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 14px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current tablink class */
+      .tab button.active {
+        background-color: #ffffff;
+        font-weight: bold;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+
+      .table-styling {
+        border-collapse: collapse;
+        margin-left: 5px;
+        margin-bottom: 10px;
+      }
+
+      .table-style thead,
+      th,
+      td {
+        border-collapse: collapse;
+        border: 1px solid lightgray;
+        padding: 12px 10px;
+      }
+
+      .left-align {
+        text-align: left;
+      }
+
+      .justify-align {
+        text-align: justify;
+      }
+
+      .center-align {
+        text-align: center;
+      }
+
+      .pass-status {
+        background-color: #d4ffd4;
+        color: #006200;
+        padding: 8px 16px;
+        border-radius: 16px;
+      }
+
+      .fail-status {
+        background-color: #ffb6b6;
+        color: #620000;
+        padding: 8px 16px;
+        border-radius: 16px;
+      }
+
+      .norun-status {
+        background-color: #fffeac;
+        color: #a29f00;
+        padding: 8px 16px;
+        border-radius: 16px;
+        white-space: nowrap;
+      }
+
+      .tabcontent {
+        overflow-x: scroll;
+      }
+
+      .tabcontent::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+      }
+
+      .tabcontent::-webkit-scrollbar-thumb {
+        background: #dedede;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h2>Lorem - End To End Automated Test Report</h2>
+    <p> Report Generated on 13-Oct-2023 at 01:20:00 AM by UiPath</p>
+    <h3> Summary </h3>
+    <p>
+      <span style="font-size: 18px; font-weight: bold;">1443</span> <span> tests ran in</span>
+      <span>22 hr 18 min 21 sec</span>
+    </p>
+    <div class="tab">
+      <button class="tablinks active" onclick="openCity(event, 'pass')">Pass <span class="pass-status"
+          style="font-size: 12px; font-weight: bold;  padding: 4px 8px;">100</span></button>
+      <button class="tablinks" onclick="openCity(event, 'fail')">Fail <span class="fail-status"
+          style="font-size: 12px; font-weight: bold; padding: 4px 8px;">200</span></button>
+      <button class="tablinks" onclick="openCity(event, 'norun')">No Run <span class="norun-status"
+          style="font-size: 12px; font-weight: bold; padding: 4px 8px;">100</span></button>
     </div>
-        </div>
-        </div>
-    <script src="js/accordion.js"></script>
+
+    <div id="pass" class="tabcontent" style="display: block;">
+      <table id="execution-result" style="border-collapse: collapse; font-size: 14px;">
+        <thead> <!-- Table Heading-->
+          <tr>
+            <th class="center-align">Script ID</th>
+            <th class="center-align">Test Description</th>
+            <th class="center-align">Results</th>
+            <th class="center-align">Comments</th>
+            <th class="center-align">Duration</th>
+            <th class="center-align">JIRA Link</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="pass-status">Pass</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="pass-status">Pass</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="pass-status">Pass</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="pass-status">Pass</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="pass-status">Pass</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div id="fail" class="tabcontent">
+      <table id="execution-result" style="border-collapse: collapse; font-size: 14px;">
+        <thead> <!-- Table Heading-->
+          <tr>
+            <th class="center-align">Script ID</th>
+            <th class="center-align">Test Description</th>
+            <th class="center-align">Results</th>
+            <th class="center-align">Comments</th>
+            <th class="center-align">Duration</th>
+            <th class="center-align">JIRA Link</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="fail-status">Fail</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="fail-status">Fail</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="fail-status">Fail</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="fail-status">Fail</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="fail-status">Fail</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div id="norun" class="tabcontent">
+      <table id="execution-result" style="border-collapse: collapse; font-size: 14px;">
+        <thead> <!-- Table Heading-->
+          <tr>
+            <th class="center-align">Script ID</th>
+            <th class="center-align">Test Description</th>
+            <th class="center-align">Results</th>
+            <th class="center-align">Comments</th>
+            <th class="center-align">Duration</th>
+            <th class="center-align">JIRA Link</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="norun-status">No Run</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="norun-status">No Run</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="norun-status">No Run</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="norun-status">No Run</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+          <tr>
+            <td class="center-align custom-width"> FD-18668_CS</td>
+            <td class="justify-align"> Verify the user is not able to create the lead without entering the
+              below mandatory fields:
+              1. Name
+              2. City
+              3. State </td>
+            <td class="center-align cb-value"><span class="pass-button"><span class="norun-status">No Run</span></span>
+            </td>
+            <td class="center-align">Lorem Login Passed.
+              TestData is present for the TestScript.
+              FD-18668_CS has all the required data to proceed.
+              FD-18668_CS - The New lead has not created.</td>
+            <td class="center-align">00:05:00</td>
+            <td class="center-align"> <a class="link-style" href="#">FD-18668_CS</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+
+    </script>
+
+  </body>
+
+  </html>
+
 </body>
 
 </html>
