@@ -195,14 +195,22 @@ button:hover,
   .banner-description {
     font-size: 16px !important;
   }
+  div#navbarSupportedContent {
+    height: 100vh;
+  }
   .custom-carousel-indicators {
-    right: -185px !important;
+    right: -235px !important;
   }
   .carousel-head {
     font-size: 32px !important;
   }
   .banner-text {
     font-size: 16px !important;
+  }
+}
+@media (max-width: 767px) {
+  .custom-carousel-indicators {
+    right: -185px !important;
   }
 }
 .padding-0 {
@@ -259,7 +267,7 @@ a.cfs-nav-item:hover,
   color: #cc0000 !important;
 }
 .home-banner-height {
-  height: 510px;
+  height: 550px;
 }
 .obj-fit-cover {
   object-fit: cover;
@@ -268,7 +276,7 @@ a.cfs-nav-item:hover,
   transform: rotate(90deg) !important;
   left: auto !important;
   bottom: 50% !important;
-  right: -290px;
+  right: -340px;
   column-gap: 24px;
 }
 .custom-carousel-indicators [data-bs-target] {
@@ -438,7 +446,7 @@ a.cfs-nav-item:hover,
 @media (max-width: 767px) {
   .left-c-and-right-i-sec-spacing,
   .left-i-and-right-c-sec-spacing {
-    padding: 32px 20px 25px 20px;
+    padding: 35px 20px 25px 20px;
   }
 }
 @media (max-width: 767px) {
