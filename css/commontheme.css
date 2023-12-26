@@ -164,6 +164,9 @@ h4 {
 .custom-acc.collapsed .custom-accordion-arrow {
   transform: rotate(180deg);
 }
+p.footer-heading {
+  color: #000;
+}
 button,
 .header-button {
   background-color: #cc0000;
@@ -300,6 +303,10 @@ a.cfs-nav-item:hover,
 .custom-dropdown {
   border-radius: 0 !important;
   padding: 0 !important;
+  top: 97% !important;
+}
+.header-menu {
+  width: 254px;
 }
 .custom-tabs {
   border-bottom: 1px solid #bcbcbe;
@@ -369,12 +376,13 @@ a.cfs-nav-item:hover,
   }
   .header-button {
     margin-top: 12px;
+    margin-bottom: 12px;
   }
   .custom-tabs .nav-link {
     padding: 12px 15px;
   }
-  .custom-nav-item a {
-    line-height: normal;
+  .navbar-nav li.custom-nav-item a {
+    line-height: normal !important;
   }
 }
 @media (max-width: 767px) {
@@ -396,13 +404,16 @@ a.cfs-nav-item:hover,
   h2 {
     font-size: 24px;
   }
+  .custom-nav-item .cfs-nav-item {
+    line-height: normal !important;
+  }
 }
 .section-img {
   height: 480px;
   object-fit: cover;
 }
-.custom-nav-item a {
-  line-height: 55px;
+.custom-nav-item .cfs-nav-item {
+  line-height: 55px !important;
 }
 .nav-dropdown-item {
   line-height: normal !important;
@@ -428,4 +439,28 @@ a.cfs-nav-item:hover,
   width: 369px;
   min-height: 300px;
   padding: 40px 32px 0px 32px;
+}
+.core-values-card img {
+  width: 86px;
+  height: 86px;
+}
+.left-c-and-right-i-sec-spacing {
+  padding: 0px 40px 0px 140px;
+}
+.left-i-and-right-c-sec-spacing {
+  padding: 0px 140px 0px 60px;
+}
+@media (max-width: 1025px) {
+  .left-c-and-right-i-sec-spacing {
+    padding: 0px 20px 0px 20px;
+  }
+  .left-i-and-right-c-sec-spacing {
+    padding: 0px 20px 0px 20px;
+  }
+}
+@media (max-width: 767px) {
+  .left-c-and-right-i-sec-spacing,
+  .left-i-and-right-c-sec-spacing {
+    padding: 32px 20px 25px 20px;
+  }
 }
