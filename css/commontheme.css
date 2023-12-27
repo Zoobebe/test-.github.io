@@ -144,6 +144,10 @@ h4 {
 .font-60 {
   font-size: 60px;
 }
+
+.custom-tabs button {
+    font-size: 20px;
+}
 .custom-form {
   border: 1px solid #8F9093;
   border-radius: 0px;
