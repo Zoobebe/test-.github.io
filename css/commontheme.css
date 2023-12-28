@@ -487,6 +487,9 @@ a.dropdown-item.nav-dropdown-item {
   h2 {
     font-size: 24px;
   }
+      h1.heading-secondary-size{
+        font-size:32px;
+    }
   .custom-nav-item .cfs-nav-item {
     line-height: normal !important;
   }
