@@ -645,3 +645,14 @@ ul ul {
     border-bottom: 1.5px solid #BCBCBE !important;
   }
 }
+
+@media(min-width:1350px) and (max-width:1400px){
+.cfs-nav-item {
+    font-size: 22px !important;
+}
+}
+
+.nav-dropdown-item:active {
+     background-color: #ffffff;
+     color: #333333;
+}
