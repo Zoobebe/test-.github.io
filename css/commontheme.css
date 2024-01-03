@@ -634,3 +634,14 @@ ul ul {
 .custom-form-text {
   color: #cc0000;
 }
+.core-values-card-border {
+  border-right: 1.5px solid #BCBCBE !important;
+}
+@media(max-width:1023px){
+  .core-values-card-border {
+    border-right: unset !important;
+  }
+  .core-values-card-border-mobile{
+    border-bottom: 1.5px solid #BCBCBE !important;
+  }
+}
