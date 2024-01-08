@@ -670,3 +670,7 @@ ul ul {
     right: -242px !important;
   }
 }
+
+a.dropdown-item.nav-dropdown-item{
+  color:#050505 !important;
+}
